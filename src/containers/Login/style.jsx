@@ -20,7 +20,7 @@ export const LoginImage = styled.img`
 export const Containeriten = styled.div`
     background: #373737;
     border-radius: 0 10px 10px 0;
-    padding: 40px 75px;
+    padding: 10px 65px;
     height:70%;
     display: flex;
     flex-direction: column;
@@ -48,7 +48,7 @@ export const Input = styled.input`
     box-shadow: 3px 3px 10px 0px rgba(74, 144, 226, 0.19);
     width: 391px;
     height: 38px;
-    border: none;
+    border: ${(props) => (props.erro ? '1px solid #CC1717' : 'none')};
     padding-left: 10px;
     
 `;
@@ -60,7 +60,7 @@ export const Label = styled.p`
     font-weight: 500;
     line-height: normal;
     margin-bottom: 5px;
-    margin-top:20px;
+    margin-top:10px;
 `;
 export const Button = styled.button`
     width: 182px;
@@ -101,4 +101,15 @@ export const LogoImg = styled.img`
     width: 200px;
     margin: 0 auto;
     
+`;
+
+export const InputErro = styled.p`
+    color: #CC1717;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 3px;
+
 `;
