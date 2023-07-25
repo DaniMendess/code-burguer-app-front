@@ -13,7 +13,7 @@ export const Container = styled.div`
     border-radius: 10px;
 `;
 
-export const LoginImage = styled.img`
+export const RegisterImage = styled.img`
     height: 90% ;
 `;
 
@@ -21,7 +21,7 @@ export const Containeriten = styled.div`
     background: #373737;
     border-radius: 0 10px 10px 0;
     padding: 10px 65px;
-    height:90%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
