@@ -5,6 +5,7 @@
 /* eslint-disable import/named */
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 
@@ -77,13 +78,13 @@ function Register() {
           <Input type="password" {...register('passwordConfirm')} erro={errors.passwordConfirm?.message} />
           <InputErro>{errors.passwordConfirm?.message}</InputErro>
 
-          <Button type="submit" style={{ marginTop: 25 }}>Sing Up</Button>
+          <Button type="submit" style={{ marginTop: 25 }}>Sing In</Button>
 
         </form>
 
         <SingInLink>
           Já possui uma conta ?
-          <a> Sing In</a>
+          <Link to="/login" style={{ color: 'white' }}> Sing In</Link>
         </SingInLink>
 
       </Containeriten>

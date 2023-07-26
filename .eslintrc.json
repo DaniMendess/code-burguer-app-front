@@ -31,7 +31,8 @@
         "react/jsx-no-useless-fragment" : "off",
         "no-unused-vars": "warn",
         "import/prefer-default-export" : "off",
-        "react/prop-types": 0
+        "react/prop-types": 0,
+        "react/jsx-no-constructed-context-values": "off"
         
         
     }
