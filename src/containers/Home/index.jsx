@@ -1,11 +1,15 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+
+import HomeLogo from '../../assets/burger-home.png';
+import CategoryCarousel from '../../components/CategoryCarousel';
+import { Container, HomeImg } from './style';
 
 function Home() {
   return (
-    <div>
-      Home
-    </div>
+    <Container>
+      <HomeImg src={HomeLogo} alt="logo-da-home" />
+      <CategoryCarousel />
+    </Container>
   );
 }
 

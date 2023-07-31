@@ -32,7 +32,9 @@
         "no-unused-vars": "warn",
         "import/prefer-default-export" : "off",
         "react/prop-types": 0,
-        "react/jsx-no-constructed-context-values": "off"
+        "react/jsx-no-constructed-context-values": "off",
+        "import/no-unresolved": "off",
+        "no-param-reassign": "off"
         
         
     }
