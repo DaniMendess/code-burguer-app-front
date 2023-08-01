@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
 import HomeLogo from '../../assets/burger-home.png';
@@ -9,6 +10,7 @@ function Home() {
     <Container>
       <HomeImg src={HomeLogo} alt="logo-da-home" />
       <CategoryCarousel />
+
     </Container>
   );
 }
