@@ -3,6 +3,7 @@ import React from 'react';
 
 import HomeLogo from '../../assets/burger-home.png';
 import CategoryCarousel from '../../components/CategoryCarousel';
+import OffersCarousel from '../../components/OffersCarousel';
 import { Container, HomeImg } from './style';
 
 function Home() {
@@ -10,6 +11,7 @@ function Home() {
     <Container>
       <HomeImg src={HomeLogo} alt="logo-da-home" />
       <CategoryCarousel />
+      <OffersCarousel />
 
     </Container>
   );
