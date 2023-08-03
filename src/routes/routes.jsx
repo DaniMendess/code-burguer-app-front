@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from '../containers/Home';
 import Login from '../containers/Login';
+import Products from '../containers/Products';
 import Register from '../containers/Register';
 import PrivateRoute from './privete-route';
 
@@ -20,6 +21,16 @@ function routes() {
             </PrivateRoute>
 )}
         />
+
+        <Route
+          path="/produtos"
+          element={(
+            <PrivateRoute>
+              <Products />
+            </PrivateRoute>
+)}
+        />
+
       </Routes>
     </BrowserRouter>
   );

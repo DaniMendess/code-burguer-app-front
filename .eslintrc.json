@@ -34,7 +34,10 @@
         "react/prop-types": 0,
         "react/jsx-no-constructed-context-values": "off",
         "import/no-unresolved": "off",
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "max-len": "off",
+        "import/named": "off",
+        "arrow-body-style": "off"
         
         
     }
