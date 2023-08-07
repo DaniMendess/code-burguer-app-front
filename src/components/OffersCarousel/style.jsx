@@ -29,7 +29,6 @@ export const Container = styled.div`
 `;
 
 export const CategoryImg = styled.img`
-   
 `;
 
 export const ContainerItems = styled.div`
