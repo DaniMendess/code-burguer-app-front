@@ -34,6 +34,7 @@ export const CategoryImg = styled.img`
 export const ContainerItems = styled.div`
    display: flex;
    flex-direction: column;
+   
 
    p{
       font-family: Roboto;
@@ -70,6 +71,7 @@ export const Button = styled.button`
 
 export const Image = styled.img`
    width: 200px;
+   height: 184px;
    border-radius: 10px;
    margin-bottom: 16px;
 `;

@@ -2,14 +2,14 @@
 import React, { useState, useEffect } from 'react';
 
 import ProductLogo from '../../assets/image-produtos.png';
-import CardProducts from '../../components/CardProducts';
+import { CardProducts } from '../../components/index';
 import api from '../../services/api';
 import formatCurrency from '../../utils/formatCurrency';
 import {
   Container, ProductImg, ButtonCategory, CategoryMenu, ProductsContainer,
 } from './style';
 
-function Products() {
+export function Products() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setfilteredProducts] = useState([]);
@@ -62,5 +62,3 @@ function Products() {
     </Container>
   );
 }
-
-export default Products;

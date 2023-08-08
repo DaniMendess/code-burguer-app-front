@@ -8,7 +8,7 @@ import {
   Container, CategoryImg, ContainerItems, Button, Image,
 } from './style';
 
-function OfferCarousel() {
+export function OffersCarousel() {
   const [offers, setOffers] = useState([]);
   useEffect(() => {
     async function loadOffers() {
@@ -49,5 +49,3 @@ function OfferCarousel() {
     </Container>
   );
 }
-
-export default OfferCarousel;

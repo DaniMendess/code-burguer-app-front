@@ -1,7 +1,6 @@
 import React, {
   createContext, useContext, useState, useEffect,
 } from 'react';
-import { set } from 'sim/lib/cookies';
 
 const UserContext = createContext({});
 

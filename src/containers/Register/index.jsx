@@ -11,13 +11,13 @@ import * as Yup from 'yup';
 
 import ImgRegister from '../../assets/burguer3.svg';
 import Logo from '../../assets/logo.svg';
-import Button from '../../components/Button/index';
+import { Button } from '../../components/index';
 import api from '../../services/api';
 import {
   Container, InputErro, Containeriten, Input, Label, RegisterImage, LogoImg, SingInLink,
 } from './style';
 
-function Register() {
+export function Register() {
   const schema = Yup.object().shape({
     name: Yup.string().required('Nome é obrigatório'),
     email: Yup.string().email('Digite um email válido').required('Email obrigatório!'),
@@ -92,5 +92,3 @@ function Register() {
     </Container>
   );
 }
-
-export default Register;

@@ -10,14 +10,14 @@ import * as Yup from 'yup';
 
 import ImgLogin from '../../assets/burguer1.svg';
 import Logo from '../../assets/logo.svg';
-import Button from '../../components/Button/index';
+import { Button } from '../../components/index';
 import { useUser } from '../../hooks/UserContext';
 import api from '../../services/api';
 import {
   Container, InputErro, Containeriten, Input, Label, LoginImage, LogoImg, SingInLink,
 } from './style';
 
-function Login() {
+export function Login() {
   const navigate = useNavigate();
   const { putUserData } = useUser();
   const schema = Yup.object().shape({
@@ -89,5 +89,3 @@ function Login() {
     </Container>
   );
 }
-
-export default Login;

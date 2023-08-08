@@ -38,7 +38,7 @@
         "max-len": "off",
         "import/named": "off",
         "arrow-body-style": "off"
-        
+       
         
     }
 }

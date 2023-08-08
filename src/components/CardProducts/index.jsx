@@ -1,11 +1,12 @@
+/* eslint-disable import/no-cycle */
 import React from 'react';
 
-import Button from '../Button/index';
+import { Button } from '../index';
 import {
   Container, Image, ProductName, ProductsPrice,
 } from './style';
 
-function CardProducts({ product }) {
+export function CardProducts({ product }) {
   return (
     <Container>
       <Image src={product.url} />
@@ -19,5 +20,3 @@ function CardProducts({ product }) {
 
   );
 }
-
-export default CardProducts;
