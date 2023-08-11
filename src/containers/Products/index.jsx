@@ -1,5 +1,7 @@
+/* eslint-disable no-undef */
 /* eslint-disable array-callback-return */
 import React, { useState, useEffect } from 'react';
+import { StyleSheetManager } from 'styled-components';
 
 import ProductLogo from '../../assets/image-produtos.png';
 import { CardProducts } from '../../components/index';
@@ -50,7 +52,11 @@ export function Products() {
       <ProductImg src={ProductLogo} alt="logo-do-produto" />
       <CategoryMenu>
         {categories && categories.map((category) => {
-          return <ButtonCategory key={category.id} onClick={() => { setActivedCategory(category.id); }} isActived={activedCategory === category.id}>{category.name}</ButtonCategory>;
+          return (
+            <StyleSheetManager key={category.id} shouldForwardProp={(prop) => prop !== 'isactived'}>
+              <ButtonCategory key={category.id} onClick={() => { setActivedCategory(category.id); }} isactived={activedCategory === category.id ? 'true' : ''}>{category.name}</ButtonCategory>
+            </StyleSheetManager>
+          );
         })}
       </CategoryMenu>
       <ProductsContainer>

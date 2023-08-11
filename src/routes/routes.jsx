@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import {
-  Home, Login, Products, Register,
+  Home, Login, Products, Register, Cart,
 } from '../containers/index';
 import PrivateRoute from './privete-route';
 
@@ -26,6 +26,14 @@ function routes() {
           element={(
             <PrivateRoute>
               <Products />
+            </PrivateRoute>
+)}
+        />
+        <Route
+          path="/carrinho"
+          element={(
+            <PrivateRoute>
+              <Cart />
             </PrivateRoute>
 )}
         />

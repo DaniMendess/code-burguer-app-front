@@ -20,13 +20,13 @@ export const ButtonCategory = styled.button`
     cursor: pointer;
     border: none;
     background: none;
-    color: ${(props) => (props.isActived ? '#9758A6' : '#9A9A9D')};
+    color: ${(props) => (props.isactived ? '#9758A6' : '#9A9A9D')};
     font-family: Roboto;
     font-size: 17px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    border-bottom: ${(props) => (props.isActived ? '2px solid #9758A6' : '#9A9A9D')};
+    border-bottom: ${(props) => (props.isactived ? '2px solid #9758A6' : '#9A9A9D')};
     padding: 5px;
     
 `;
