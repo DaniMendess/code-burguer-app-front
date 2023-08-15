@@ -6,6 +6,7 @@ export const Container = styled.div`
     box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.03);
     padding: 10px;
     width: max-content;
+    
 `;
 
 export const Header = styled.div`
@@ -54,6 +55,19 @@ export const Body = styled.div`
             margin-top: 5px;
             font-weight: bold;
         }
+    }
+
+    .price-item{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 15px;  
+
+        img{
+            cursor: pointer;
+        }
+
     }
 `;
 

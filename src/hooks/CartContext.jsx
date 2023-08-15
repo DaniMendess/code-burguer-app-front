@@ -8,6 +8,12 @@ const CartContext = createContext({});
 export function CartProvider({ children }) {
   const [cartProducts, setCartProduts] = useState([]);
 
+  const updateLocalStorage = async (products) => {
+    await localStorage.setItem('codeburguer:cartInfo', JSON.stringify(products));
+  };
+
+  console.log(cartProducts);
+
   const putProdutsInCart = async (product) => {
     const cartIndex = cartProducts.findIndex((item) => item.id === product.id);
 
@@ -23,7 +29,35 @@ export function CartProvider({ children }) {
       setCartProduts(newCartProduts);
     }
 
-    await localStorage.setItem('codeburguer:cartInfo', JSON.stringify(newCartProduts));
+    await updateLocalStorage(newCartProduts);
+  };
+
+  const deleteProducts = async (productId) => {
+    const newCart = cartProducts.filter((item) => item.id !== productId);
+
+    setCartProduts(newCart);
+    await updateLocalStorage(newCart);
+  };
+
+  const increaseProducts = async (productId) => {
+    const newCart = cartProducts.map((product) => {
+      return product.id === productId ? { ...product, quantity: product.quantity + 1 } : product;
+    });
+
+    setCartProduts(newCart);
+    await updateLocalStorage(newCart);
+  };
+
+  const decreaseProducts = async (productId) => {
+    const cartIndex = cartProducts.findIndex((item) => item.id === productId);
+
+    if (cartProducts[cartIndex].quantity > 1) {
+      const newCart = cartProducts.map((product) => {
+        return product.id === productId ? { ...product, quantity: product.quantity - 1 } : product;
+      });
+      setCartProduts(newCart);
+      await updateLocalStorage(newCart);
+    }
   };
 
   useEffect(() => {
@@ -39,7 +73,10 @@ export function CartProvider({ children }) {
   }, []);
 
   return (
-    <CartContext.Provider value={{ putProdutsInCart, cartProducts }}>
+    <CartContext.Provider value={{
+      putProdutsInCart, cartProducts, increaseProducts, decreaseProducts, deleteProducts,
+    }}
+    >
       {children}
     </CartContext.Provider>
   );
