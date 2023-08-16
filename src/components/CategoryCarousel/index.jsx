@@ -1,3 +1,7 @@
+/* eslint-disable react/no-unused-prop-types */
+/* eslint-disable react/require-default-props */
+/* eslint-disable no-undef */
+
 import React, { useEffect, useState } from 'react';
 import Carousel from 'react-elastic-carousel';
 

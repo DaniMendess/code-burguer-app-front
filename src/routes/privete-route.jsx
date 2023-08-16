@@ -2,6 +2,8 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 
+import { Header } from '../components/Header';
+
 function PrivateRoute({ children }) {
   const user = localStorage.getItem('codeburguer:userData');
 
@@ -9,7 +11,12 @@ function PrivateRoute({ children }) {
     return <Navigate to="/login" />;
   }
 
-  return children;
+  return (
+    <>
+      <Header />
+      {children}
+    </>
+  );
 }
 
 export default PrivateRoute;

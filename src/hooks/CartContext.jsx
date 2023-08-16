@@ -11,9 +11,6 @@ export function CartProvider({ children }) {
   const updateLocalStorage = async (products) => {
     await localStorage.setItem('codeburguer:cartInfo', JSON.stringify(products));
   };
-
-  console.log(cartProducts);
-
   const putProdutsInCart = async (product) => {
     const cartIndex = cartProducts.findIndex((item) => item.id === product.id);
 
