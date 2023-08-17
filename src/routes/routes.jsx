@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import {
-  Home, Login, Products, Register, Cart,
+  Home, Login, Products, Register, Cart, Admin,
 } from '../containers/index';
 import PrivateRoute from './privete-route';
 
@@ -34,6 +34,15 @@ function routes() {
           element={(
             <PrivateRoute>
               <Cart />
+            </PrivateRoute>
+)}
+        />
+
+        <Route
+          path="/pedidos"
+          element={(
+            <PrivateRoute isadmin>
+              <Admin />
             </PrivateRoute>
 )}
         />
