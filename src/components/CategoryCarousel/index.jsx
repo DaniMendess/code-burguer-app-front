@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/require-default-props */
 /* eslint-disable no-undef */
-
 import React, { useEffect, useState } from 'react';
 import Carousel from 'react-elastic-carousel';
+import { useNavigate } from 'react-router-dom';
 
 import Category from '../../assets/category.png';
 import api from '../../services/api';
@@ -31,6 +31,12 @@ export function CategoryCarousel() {
     { width: 1300, itemsToShow: 5 },
   ];
 
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (categoryId) => {
+    navigate('/produtos', { state: { categoryId } });
+  };
+
   return (
 
     <Container>
@@ -39,7 +45,10 @@ export function CategoryCarousel() {
         {categories && categories.map((category) => (
           <ContainerItems key={category.id}>
             <Image src={category.url} alt="imagem-da-categoria" />
-            <Button>{category.name}</Button>
+            <Button onClick={() => handleCategoryClick(category.id)}>
+              {category.name}
+
+            </Button>
           </ContainerItems>
         ))}
       </Carousel>

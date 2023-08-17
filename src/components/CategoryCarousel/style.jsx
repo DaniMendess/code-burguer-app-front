@@ -58,6 +58,11 @@ export const Button = styled.button`
    &:active{
       opacity: 0.8;
    }
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-decoration: none;
 `;
 
 export const Image = styled.img`

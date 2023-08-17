@@ -1,15 +1,24 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import Car from '../../assets/ico-car.png';
 import Pessoa from '../../assets/ico-pessoa.png';
+import { useUser } from '../../hooks/UserContext';
 import {
   Container, ContainerLeft, PageLink, ContainerRight, ContainerText, Line, PageLinkLogOut,
 } from './style';
 
 export function Header() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  const { userLogOut, userData } = useUser();
+
+  const logOut = () => {
+    userLogOut();
+    navigate('/login');
+  };
 
   return (
     <Container>
@@ -32,8 +41,13 @@ export function Header() {
           <img src={Pessoa} alt="logo-pessoa" />
         </PageLink>
         <ContainerText>
-          <p>Olá Daniel</p>
-          <PageLinkLogOut>
+          <p>
+            Olá
+            {', '}
+
+            {userData.name}
+          </p>
+          <PageLinkLogOut onClick={logOut}>
             Sair
           </PageLinkLogOut>
         </ContainerText>

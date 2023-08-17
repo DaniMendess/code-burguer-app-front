@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable array-callback-return */
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { StyleSheetManager } from 'styled-components';
 
 import ProductLogo from '../../assets/image-produtos.png';
@@ -12,10 +13,14 @@ import {
 } from './style';
 
 export function Products() {
+  const location = useLocation();
+  const { state } = location;
+  const categoryId = state ? state.categoryId : 0;
+
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setfilteredProducts] = useState([]);
-  const [activedCategory, setActivedCategory] = useState(0);
+  const [activedCategory, setActivedCategory] = useState(categoryId);
 
   useEffect(() => {
     async function loadCategories() {
