@@ -12,14 +12,31 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import React, { useState } from 'react';
+import ReactSelect from 'react-select';
 
+import api from '../../../services/api';
 import formatDate from '../../../utils/formatDate';
-import { ProductsImg } from './style';
+import StatusOrder from './order-status';
+import { ProductsImg, ReactSelectSyled } from './style';
 
 export function Row(row) {
   const [open, setOpen] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const [products] = useState(row.row);
+
+  async function setNewStatus(id, status) {
+    setIsLoading(true);
+    try {
+      await api.put(`orders/${id}`, { status });
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  console.log(row);
 
   return (
     <>
@@ -38,7 +55,17 @@ export function Row(row) {
         </TableCell>
         <TableCell>{products.name}</TableCell>
         <TableCell>{formatDate(products.date)}</TableCell>
-        <TableCell>{products.status}</TableCell>
+        <TableCell>
+          <ReactSelectSyled
+            options={StatusOrder}
+            menuPortalTarget={document.body}
+            defaultValue={StatusOrder.find((option) => option.value === products.status) || null}
+            onChange={(newStatus) => {
+              setNewStatus(products.orderId, newStatus.value);
+            }}
+            isLoading={isLoading}
+          />
+        </TableCell>
 
       </TableRow>
       <TableRow>
