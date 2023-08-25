@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default-member */
 /* eslint-disable import/no-named-as-default */
 /* eslint-disable no-underscore-dangle */
 import Paper from '@mui/material/Paper';
@@ -9,11 +10,14 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow'; import React, { useEffect, useState } from 'react';
 
 import api from '../../../services/api';
+import StatusOrder from './order-status';
 import Row from './row';
-import { Container } from './style';
+import { Container, Menu, LinkMenu } from './style';
 
 export function Orders() {
   const [orders, setOrders] = useState([]);
+  const [filteredOrders, setFilteredOrders] = useState([]);
+  const [activeStatus, setActiveStatus] = useState(1);
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
@@ -21,6 +25,7 @@ export function Orders() {
       const { data } = await api.get('orders');
 
       setOrders(data);
+      setFilteredOrders(data);
     }
 
     loadOrders();
@@ -37,14 +42,33 @@ export function Orders() {
   }
 
   useEffect(() => {
-    const newRows = orders.map((ord) => createData(ord));
+    const newRows = filteredOrders.map((ord) => createData(ord));
     setRows(newRows);
+  }, [filteredOrders]);
+
+  useEffect(() => {
+    const statusIndex = StatusOrder.findIndex((status) => status.id === activeStatus);
+    const newFilteredOrder = orders.filter((order) => order.status === StatusOrder[statusIndex].value);
+    setFilteredOrders(newFilteredOrder);
   }, [orders]);
 
-  // console.log(rows);
+  function handleStatus(status) {
+    if (status.id === 1) {
+      setFilteredOrders(orders);
+    } else {
+      const newOrder = orders.filter((order) => order.status === status.value);
 
+      setFilteredOrders(newOrder);
+    }
+    setActiveStatus(status.id);
+  }
   return (
     <Container>
+      <Menu>
+        {StatusOrder && StatusOrder.map((status) => (
+          <LinkMenu onClick={() => handleStatus(status)} isactivestatus={activeStatus === status.id ? 'true' : ''} key={status.id}>{status.label}</LinkMenu>
+        )) }
+      </Menu>
       <TableContainer component={Paper}>
         <Table aria-label="collapsible table">
           <TableHead>
@@ -58,7 +82,7 @@ export function Orders() {
           </TableHead>
           <TableBody>
             {rows.map((row) => (
-              <Row key={row.orderId} row={row} />
+              <Row key={row.orderId} row={row} orders={orders} setOrders={setOrders} />
             ))}
           </TableBody>
         </Table>

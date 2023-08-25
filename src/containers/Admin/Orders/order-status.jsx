@@ -1,8 +1,8 @@
 const StatusOrder = [
   {
     id: 1,
-    label: 'Em preparação',
-    value: 'Em preparação',
+    label: 'Todos',
+    value: 'Todos',
   },
   {
     id: 2,
@@ -11,18 +11,23 @@ const StatusOrder = [
   },
   {
     id: 3,
-    label: 'Pedido pronto',
-    value: 'Pedido pronto',
+    label: 'Em preparação',
+    value: 'Em preparação',
   },
   {
     id: 4,
-    label: 'Entregue',
-    value: 'Entregue',
+    label: 'Pedido pronto',
+    value: 'Pedido pronto',
   },
   {
     id: 5,
     label: 'Pedido a caminho',
     value: 'Pedido a caminho',
+  },
+  {
+    id: 6,
+    label: 'Entregue',
+    value: 'Entregue',
   },
 ];
 

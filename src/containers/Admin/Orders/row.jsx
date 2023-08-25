@@ -1,3 +1,7 @@
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable react/no-unused-prop-types */
+/* eslint-disable react/require-default-props */
+/* eslint-disable no-undef */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-underscore-dangle */
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -11,32 +15,35 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import ReactSelect from 'react-select';
 
 import api from '../../../services/api';
 import formatDate from '../../../utils/formatDate';
 import StatusOrder from './order-status';
 import { ProductsImg, ReactSelectSyled } from './style';
 
-export function Row(row) {
+export function Row({ row, orders, setOrders }) {
   const [open, setOpen] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
 
-  const [products] = useState(row.row);
+  const [products] = useState(row);
 
   async function setNewStatus(id, status) {
     setIsLoading(true);
     try {
       await api.put(`orders/${id}`, { status });
+
+      const newOrders = orders.map((order) => {
+        return order._id === id ? { ...order, status } : order;
+      });
+      setOrders(newOrders);
     } catch (err) {
       console.error(err);
     } finally {
       setIsLoading(false);
     }
   }
-
-  console.log(row);
 
   return (
     <>
@@ -51,13 +58,13 @@ export function Row(row) {
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row">
-          {row.row.orderId}
+          {row.orderId}
         </TableCell>
         <TableCell>{products.name}</TableCell>
         <TableCell>{formatDate(products.date)}</TableCell>
         <TableCell>
           <ReactSelectSyled
-            options={StatusOrder}
+            options={StatusOrder.filter((status) => status.value !== 'Todos')}
             menuPortalTarget={document.body}
             defaultValue={StatusOrder.find((option) => option.value === products.status) || null}
             onChange={(newStatus) => {
@@ -107,21 +114,23 @@ export function Row(row) {
   );
 }
 
-// Row.propTypes = {
-//   row: PropTypes.shape({
-//     name: PropTypes.string.isRequired,
-//     orderId: PropTypes.string.isRequired,
-//     date: PropTypes.string.isRequired,
-//     status: PropTypes.string.isRequired,
-//     products: PropTypes.arrayOf(
-//       PropTypes.shape({
-//         quantity: PropTypes.number.isRequired,
-//         name: PropTypes.string.isRequired,
-//         category: PropTypes.string.isRequired,
-//         url: PropTypes.string.isRequired,
-//       }),
-//     ).isRequired,
-//   }).isRequired,
-// };
+Row.propTypes = {
+  orders: PropTypes.array,
+  setOrders: PropTypes.func,
+  row: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    orderId: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    products: PropTypes.arrayOf(
+      PropTypes.shape({
+        quantity: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
+  }).isRequired,
+};
 
 export default Row;

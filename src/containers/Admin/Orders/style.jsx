@@ -20,3 +20,19 @@ export const ReactSelectSyled = styled(ReactSelect)`
         background: #efefef;
     }
 `;
+
+export const Menu = styled.div`
+  display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    margin: 20px 0;
+
+`;
+export const LinkMenu = styled.a`
+    color: #323D5D;
+    cursor: pointer;
+    font-weight: ${(props) => (props.isactivestatus ? 'bold' : '400')};
+    border-bottom: ${(props) => (props.isactivestatus ? '2px solid #9758A6' : 'none')};
+    padding-bottom: 5px  ;
+`;
