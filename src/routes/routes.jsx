@@ -46,6 +46,14 @@ function routes() {
             </PrivateRoute>
 )}
         />
+        <Route
+          path="/listar-produtos"
+          element={(
+            <PrivateRoute isadmin>
+              <Admin />
+            </PrivateRoute>
+)}
+        />
 
       </Routes>
     </BrowserRouter>
