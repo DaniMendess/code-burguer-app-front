@@ -32,7 +32,7 @@ export const ItemContainer = styled.div`
     align-items: center;
     border-radius: 2px;
     background: ${(props) => (props.isactive ? '#565656' : 'none')};
-    margin: 0 10px;
+    margin:  10px;
     padding-left: 15px;
  
 

@@ -9,7 +9,8 @@ import {
   Container, ItemContainer, ListLink,
 } from './style';
 
-export function SideMenuAdmin() {
+export function SideMenuAdmin({ path }) {
+  console.log(path);
   const { userLogOut } = useUser();
   const filteredProps = ['isactive'];
 
@@ -20,7 +21,7 @@ export function SideMenuAdmin() {
       <hr />
       {menuList && menuList.map((item) => (
         <StyleSheetManager key={item.id} shouldForwardProp={(prop) => !filteredProps.includes(prop)}>
-          <ItemContainer isactive={active ? 'true' : ''}>
+          <ItemContainer key={item.id} isactive={path === item.link ? 'true' : ''}>
             <item.icon className="icon" />
             <ListLink to={item.link}>
               {item.label}
