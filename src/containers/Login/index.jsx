@@ -10,11 +10,11 @@ import * as Yup from 'yup';
 
 import ImgLogin from '../../assets/burguer1.svg';
 import Logo from '../../assets/logo.svg';
-import { Button } from '../../components/index';
+import { Button, ErrorMessage } from '../../components/index';
 import { useUser } from '../../hooks/UserContext';
 import api from '../../services/api';
 import {
-  Container, InputErro, Containeriten, Input, Label, LoginImage, LogoImg, SingInLink,
+  Container, Containeriten, Input, Label, LoginImage, LogoImg, SingInLink,
 } from './style';
 
 export function Login() {
@@ -72,10 +72,10 @@ export function Login() {
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <Label>Email</Label>
           <Input type="email" {...register('email')} erro={errors.email?.message} />
-          <InputErro>{errors.email?.message}</InputErro>
+          <ErrorMessage>{errors.email?.message}</ErrorMessage>
           <Label>Senha</Label>
           <Input type="password" {...register('password')} erro={errors.password?.message} />
-          <InputErro>{errors.password?.message}</InputErro>
+          <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
           <Button type="submit" style={{ marginTop: 25 }}>
             Sing Up

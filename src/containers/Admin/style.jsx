@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
+import fundo from '../../assets/fundoadmin1.jpg';
+
 export const Container = styled.div`
-    background-color: #EFEFEF;
+    background: url('${fundo}');
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-attachment: fixed;
     min-height: 100vh;
     display: flex;
     width: 100vw;
@@ -10,4 +15,5 @@ export const Container = styled.div`
 
 export const ContainerItems = styled.div`
     padding: 20px;
+    width: 100%;
 `;

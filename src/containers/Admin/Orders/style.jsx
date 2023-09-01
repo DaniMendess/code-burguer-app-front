@@ -4,6 +4,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
     background: #efefef;
     min-height: 100vh;
+    border-radius: 10px;
+    padding: 10px;
 `;
 
 export const ProductsImg = styled.img`

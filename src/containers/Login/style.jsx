@@ -84,14 +84,3 @@ export const LogoImg = styled.img`
     margin: 0 auto;
     
 `;
-
-export const InputErro = styled.p`
-    color: #CC1717;
-    font-family: Roboto;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-top: 3px;
-
-`;

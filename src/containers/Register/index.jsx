@@ -11,10 +11,10 @@ import * as Yup from 'yup';
 
 import ImgRegister from '../../assets/burguer3.svg';
 import Logo from '../../assets/logo.svg';
-import { Button } from '../../components/index';
+import { Button, ErrorMessage } from '../../components/index';
 import api from '../../services/api';
 import {
-  Container, InputErro, Containeriten, Input, Label, RegisterImage, LogoImg, SingInLink,
+  Container, Containeriten, Input, Label, RegisterImage, LogoImg, SingInLink,
 } from './style';
 
 export function Register() {
@@ -67,16 +67,16 @@ export function Register() {
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <Label>Nome</Label>
           <Input type="text" {...register('name')} erro={errors.name?.message} />
-          <InputErro>{errors.name?.message}</InputErro>
+          <ErrorMessage>{errors.name?.message}</ErrorMessage>
           <Label>Email</Label>
           <Input type="email" {...register('email')} erro={errors.email?.message} />
-          <InputErro>{errors.email?.message}</InputErro>
+          <ErrorMessage>{errors.email?.message}</ErrorMessage>
           <Label>Senha</Label>
           <Input type="password" {...register('password')} erro={errors.password?.message} />
-          <InputErro>{errors.password?.message}</InputErro>
+          <ErrorMessage>{errors.password?.message}</ErrorMessage>
           <Label>Confirme a senha</Label>
           <Input type="password" {...register('passwordConfirm')} erro={errors.passwordConfirm?.message} />
-          <InputErro>{errors.passwordConfirm?.message}</InputErro>
+          <ErrorMessage>{errors.passwordConfirm?.message}</ErrorMessage>
 
           <Button type="submit" style={{ marginTop: 25 }}>Sing In</Button>
 

@@ -8,6 +8,8 @@ export const Container = styled.div`
     align-items: center;
     flex-direction: row;
     justify-content: space-around;
+    border-radius: 10px;
+    padding: 10px;
 
 `;
 
