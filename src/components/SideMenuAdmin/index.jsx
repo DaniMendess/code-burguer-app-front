@@ -10,11 +10,9 @@ import {
 } from './style';
 
 export function SideMenuAdmin({ path }) {
-  console.log(path);
   const { userLogOut } = useUser();
   const filteredProps = ['isactive'];
 
-  const active = true;
   return (
 
     <Container>
@@ -31,7 +29,7 @@ export function SideMenuAdmin({ path }) {
       ))}
       <hr />
 
-      <ItemContainer style={{ position: 'absolute', bottom: '0px' }}>
+      <ItemContainer style={{ position: 'fixed', bottom: '0px' }}>
         <LogoutIcon style={{ color: '#ffffff' }} />
         <ListLink to="/login" onClick={userLogOut}>Sair</ListLink>
       </ItemContainer>

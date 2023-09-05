@@ -72,9 +72,18 @@ export const IconUpload = styled(DriveFolderUploadIcon)`
     color: #ffffff;
 `;
 
+export const ContainerCheckBox = styled.div`
+    display: flex;
+    align-items: center;
+
+    .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked{
+        color: #ffffff;
+    }
+`;
+
 export const TitleText = styled.h1`
     font-size: 30px;
     color: #e9e4eb;
     margin-bottom: 10px;
-    text-align: center ;
+    text-align: center;
 `;

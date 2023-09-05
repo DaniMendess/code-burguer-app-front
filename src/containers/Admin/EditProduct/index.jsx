@@ -2,9 +2,10 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/jsx-props-no-spreading */
 import { yupResolver } from '@hookform/resolvers/yup';
+import Checkbox from '@mui/material/Checkbox';
 import React, { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import ReactSelect from 'react-select';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
@@ -12,21 +13,15 @@ import * as Yup from 'yup';
 import { ErrorMessage } from '../../../components';
 import api from '../../../services/api';
 import {
-  Container, Label, Input, ButtonStyle, LabelUpload, IconUpload, TitleText,
+  Container, Label, Input, ButtonStyle, LabelUpload, IconUpload, ContainerCheckBox, TitleText,
 } from './style';
 
-export function NewProduct() {
+export function EditProduct() {
   const schema = Yup.object().shape({
     name: Yup.string().required('Campo vazio, informe o nome do produto!'),
     price: Yup.string().required('Campo vazio, informe o preço do produto!'),
     category: Yup.object().required('Escolha uma categoria!'),
-    file: Yup.mixed().test('Required', 'Adicione a imagem!', (value) => {
-      return value?.length > 0;
-    }).test('fileSize', 'Adicione arquivo até 2mb', (value) => {
-      return value[0]?.size <= 200000;
-    }).test('type', 'Adicione apenas arquivos jpeg', (value) => {
-      return (value[0]?.type === 'image/jpeg') || (value[0]?.type === 'image/png');
-    }),
+    offer: Yup.bool(),
   });
   const {
     register, handleSubmit, control, formState: { errors },
@@ -36,7 +31,9 @@ export function NewProduct() {
 
   const [filename, setFileName] = useState(null);
   const [categories, setCategories] = useState([]);
+  const { state } = useLocation();
   const navigate = useNavigate();
+  const product = state;
 
   const onSubmit = async (data) => {
     const productDataFormData = new FormData();
@@ -45,11 +42,13 @@ export function NewProduct() {
     productDataFormData.append('price', data.price);
     productDataFormData.append('category_id', data.category.id);
     productDataFormData.append('file', data.file[0]);
+    productDataFormData.append('offer', data.offer);
 
-    await toast.promise(api.post('products', productDataFormData), {
-      pending: 'Aguarde, criando novo produto',
-      success: 'Produto criado com sucesso',
-      error: 'Falha ao criar produto, tente novamente',
+    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+    await toast.promise(api.put(`products/${product.id}`, productDataFormData), {
+      pending: 'Aguarde, editando produto',
+      success: 'Produto editado com sucesso',
+      error: 'Falha ao editar produto, tente novamente',
     });
 
     setTimeout(() => {
@@ -69,16 +68,17 @@ export function NewProduct() {
 
   return (
     <Container>
+
       <form onSubmit={handleSubmit(onSubmit)}>
-        <TitleText>NOVO PRODUTO</TitleText>
+        <TitleText>EDITAR PRODUTO</TitleText>
         <div>
           <Label>Nome</Label>
-          <Input type="text" {...register('name')} />
+          <Input type="text" {...register('name')} defaultValue={product.name} />
           <ErrorMessage>{errors.name?.message}</ErrorMessage>
         </div>
         <div>
           <Label>Preço</Label>
-          <Input type="number" {...register('price')} />
+          <Input type="number" {...register('price')} defaultValue={product.price} />
           <ErrorMessage>{errors.price?.message}</ErrorMessage>
         </div>
         <div>
@@ -113,16 +113,22 @@ export function NewProduct() {
                   getOptionLabel={(cat) => cat.name}
                   getOptionValue={(cat) => cat.id}
                   placeholder="Catetorias"
+                  defaultValue={product.category}
                 />
               );
             }}
           />
           <ErrorMessage>{errors.category?.message}</ErrorMessage>
         </div>
-        <ButtonStyle>Adicionar produto</ButtonStyle>
+
+        <ContainerCheckBox>
+          <Checkbox defaultChecked={product.offer} {...register('offer')} style={{ margin: '0' }} />
+          <Label style={{ margin: '0' }}>Produto em oferta?</Label>
+        </ContainerCheckBox>
+        <ButtonStyle>Editar produto</ButtonStyle>
       </form>
     </Container>
   );
 }
 
-export default NewProduct;
+export default EditProduct;
