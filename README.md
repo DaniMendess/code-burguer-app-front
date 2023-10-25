@@ -4,13 +4,15 @@
 
 > Status do Projeto: :heavy_check_mark: :warning: (concluido)
 
+<img src="src/gif/GIF 25-10-2023 17-36-02.gif">
+
 ### Tópicos
 
 :small_blue_diamond: [Descrição do projeto](#Descrição-do-projeto)
 
 :small_blue_diamond: [Funcionalidades](#Funcionalidades)
 
-:small_blue_diamond: [Deploy da Aplicação](#deploy-da-aplicação-dash)
+:small_blue_diamond: [Layout da Aplicação](#Layout-da-aplicação)
 
 :small_blue_diamond: [Começando](#Começando)
 
