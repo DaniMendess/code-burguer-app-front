@@ -5,19 +5,22 @@
 /* eslint-disable import/named */
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 
 import ImgRegister from '../../assets/burguer3.svg';
 import Logo from '../../assets/logo.svg';
 import { Button, ErrorMessage } from '../../components/index';
+import paths from '../../constants/paths';
 import api from '../../services/api';
 import {
   Container, Containeriten, Input, Label, RegisterImage, LogoImg, SingInLink,
 } from './style';
 
 export function Register() {
+  const navigate = useNavigate();
+
   const schema = Yup.object().shape({
     name: Yup.string().required('Nome é obrigatório'),
     email: Yup.string().email('Digite um email válido').required('Email obrigatório!'),
@@ -42,7 +45,11 @@ export function Register() {
       }, { validateStatus: () => true });
 
       if (status === 201 || status === 200) {
-        toast.success('Cadastro criado com sucesso!');
+        toast.success('Cadastro criado com sucesso, faça o login!');
+        setTimeout(() => {
+          navigate('/');
+        }, 2000);
+        navigate('/');
       } else if (status === 409) {
         toast.error('Email existente! Faça login para continuar.');
       } else {

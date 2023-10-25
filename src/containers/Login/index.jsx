@@ -47,6 +47,8 @@ export function Login() {
 
     );
 
+    console.log('teste');
+
     putUserData(data);
 
     setTimeout(() => {
