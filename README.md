@@ -4,7 +4,6 @@
 
 > Status do Projeto: :heavy_check_mark: :warning: (concluido)
 
-<img src="src/gif/GIF 25-10-2023 17-36-02.gif">
 
 ### Tópicos
 
@@ -44,6 +43,16 @@
 
 :heavy_check_mark: Adiciona acompanha e muda status do pedido feito, a caminho, finalizado (para usuário admin)
 
+
+## Layout da aplicação
+
+- Parte do Admin (Lado do administrador)
+
+<img src="src/gif/admin.gif">
+
+- Parte do Usuário (Lado do usuário)
+
+<img src="src/gif/usuario.gif">
 
 # 🚀 Começando 
 
@@ -89,7 +98,8 @@
     $ yarn dev
 ```
 
-## 🔨 Ferramentas utilizadas 
+## 🔨 Linguagens, dependencias e libs utilizadas :books:
+- [JavaScript]()
 - [React](https://react.dev) 
 - [Node](https://nodejs.org/en) 
 - [MongoDb](https://www.mongodb.com/pt-br)
