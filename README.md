@@ -4,7 +4,7 @@
 
 > Status do Projeto: :heavy_check_mark: :warning: (concluido)
 
-<img src="src/gif/admin-gif.gif">
+<img src="src/gif/GIF 25-10-2023 17-36-02.gif">
 
 ### Tópicos
 
