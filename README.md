@@ -4,7 +4,7 @@
 
 > Status do Projeto: :heavy_check_mark: :warning: (concluido)
 
-<img src="/gif/admin-gif.gif">
+<img src="src/gif/admin-gif.gif">
 
 ### Tópicos
 
