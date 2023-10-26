@@ -15,7 +15,7 @@
 
 :small_blue_diamond: [Começando](#Começando)
 
-:small_blue_diamond: [Linguagem, dependencias e libs utilizadas](#Linguagem-dependencias-e-libs-utilizadas-:books:)
+:small_blue_diamond: [Linguagem, dependencias e libs utilizadas](#Linguagem-dependencias-e-libs-utilizadas-📚 )
 
 ...
 
@@ -100,7 +100,7 @@
     $ yarn dev
 ```
 
-#  Linguagem, dependencias e libs utilizadas :books: 
+#  Linguagem, dependencias e libs utilizadas 📚
 
 - [JavaScript]()
 - [React](https://react.dev) 
