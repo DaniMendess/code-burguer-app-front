@@ -98,7 +98,8 @@
     $ yarn dev
 ```
 
-## 🔨 Linguagens, dependencias e libs utilizadas :books:
+## 🔨 Linguagem, dependencias e libs utilizadas :books: 
+
 - [JavaScript]()
 - [React](https://react.dev) 
 - [Node](https://nodejs.org/en) 
@@ -107,6 +108,15 @@
 - [Insomnia](https://insomnia.rest/download)
 - [JWT](https://jwt.io/)
 - [Material UI](https://mui.com/material-ui/)
+- [Toastify](https://fkhadra.github.io/react-toastify/introduction)
+
+...
+
+
+### Thank you for getting here 🤘
+
+Copyright :copyright: 2023 - **CodeBurguer sistem!**
+
 
 
 
