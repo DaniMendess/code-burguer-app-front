@@ -15,6 +15,8 @@
 
 :small_blue_diamond: [Começando](#Começando)
 
+:small_blue_diamond: [Começando](#Linguagem, dependencias e libs utilizadas)
+
 ...
 
 # Descrição do projeto 
@@ -98,7 +100,7 @@
     $ yarn dev
 ```
 
-## 🔨 Linguagem, dependencias e libs utilizadas :books: 
+# 🔨 Linguagem, dependencias e libs utilizadas :books: 
 
 - [JavaScript]()
 - [React](https://react.dev) 
@@ -113,7 +115,9 @@
 ...
 
 
-### Thank you for getting here 🤘
+### Obrigado por chegar até aqui 🤘 
+
+...
 
 Copyright :copyright: 2023 - **CodeBurguer sistem!**
 
