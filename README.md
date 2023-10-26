@@ -13,7 +13,7 @@
 
 :small_blue_diamond: [Layout da Aplicação](#Layout-da-aplicação)
 
-:small_blue_diamond: [Começando](#Começando)
+:small_blue_diamond: [Começando](#🚀Começando)
 
 :small_blue_diamond: [Linguagem, dependencias e libs utilizadas](#Linguagem-dependencias-e-libs-utilizadas)
 
