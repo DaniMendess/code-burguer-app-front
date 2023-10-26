@@ -13,7 +13,7 @@
 
 :small_blue_diamond: [Layout da Aplicação](#Layout-da-aplicação)
 
-:small_blue_diamond: [Começando](#🚀-Começando)
+:small_blue_diamond: [Começando](#Começando)
 
 :small_blue_diamond: [Linguagem, dependencias e libs utilizadas](#Linguagem-dependencias-e-libs-utilizadas)
 
@@ -56,7 +56,7 @@
 
 <img src="src/gif/usuario.gif">
 
-# 🚀 Começando 
+# Começando 
 
 <p>Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.</p>
 
@@ -100,7 +100,7 @@
     $ yarn dev
 ```
 
-# 🔨 Linguagem, dependencias e libs utilizadas :books: 
+#  Linguagem, dependencias e libs utilizadas :books: 
 
 - [JavaScript]()
 - [React](https://react.dev) 
